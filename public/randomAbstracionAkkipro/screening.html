@@ -1,0 +1,315 @@
+<html>
+
+<head>
+    <title>Pre-Appointment Covid Screening </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- select 2 filter/dropdown -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style3.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap-treeview.css">
+    <!-- <link href="css/style.css" rel="stylesheet" type="text/css" /> -->
+    <link href="css/style1.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="bootstrap-treeview.css"> -->
+    <style type="text/css">
+    .choice {
+        color: green;
+        font-style: italic;
+        font-size: 0.7em;
+        font-family: sans-serif;
+    }
+
+    /*.footer {
+        width: 900px;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+    }
+*/
+/*
+    .footer {
+        border-top: 1px solid rgba(152, 166, 173, 0.2);
+        bottom: 0px;
+        color: #818a91;
+        text-align: left !important;
+        padding: 19px 30px 20px;
+        position: absolute;
+        right: 0px;
+        left: 250px;
+    }*/
+
+
+    .button {
+        background-color: #030f27;
+    }
+    </style>
+    <script type="text/javascript">
+    baser = "http://www-open.india.ti.com/~dsci/recog_2019/cgi-bin/info/"
+
+    test = function(data) {
+        console.log(data)
+    }
+
+    onload = function() {
+
+        document.getElementsByClass = function(cls) {
+            var itemsfound = new Array;
+            var elements = document.getElementsByTagName('*');
+
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].className == cls) {
+                    itemsfound.push(elements[i]);
+                }
+            }
+            return itemsfound;
+        }
+
+
+        var infos = document.getElementsByClass("info");
+        n = infos.length;
+        eid = new Array;
+        xmlhttp = new Array;
+        for (var i = 0; i < n; i++) {
+            eid[i] = infos[i];
+            var url = eid[i].id + ".html";
+            var urlo = baser + url
+            //var xmlhttp;
+            xmlhttp[i] = new XMLHttpRequest();
+            var xmh = xmlhttp[i];
+            xmlhttp[i].onreadystatechange = function() {
+                xmh = xmlhttp[i];
+                eidd = eid[i]
+                if (xmh.readyState == 4 && xmh.status == 200) {
+                    eidd.innerHTML = xmh.responseText;
+                }
+            }
+            xmlhttp[i].open("GET", urlo, true);
+            xmlhttp[i].send();
+            //alert(i);
+        }
+
+
+    }
+    </script>
+</head>
+<script language="javascript">
+    <!--
+baser = "http://www-open.india.ti.com/~dsci/recog_2019/cgi-bin/info/"
+function pop(link){
+urlo = baser+link
+// winnm = "info" + link
+window.open(urlo,"winnm","height=400,width=500,location=no,toolbar=no,menubar=no,status=no,personalbar=no,resizable=yes");
+}
+
+function uncheckAll(){
+    document.getElementById("fever").checked = false;
+    document.getElementById("cough").checked = false;
+    document.getElementById("bodypain").checked = false;
+    document.getElementById("breathing").checked = false;
+    document.getElementById("smell").checked = false;
+
+}
+
+function setNoneFalse(){
+    document.getElementById("none").checked = false;
+}
+
+window.onload = function() {
+            document.getElementById("none")
+          .addEventListener('change', uncheckAll, false);
+        };
+//-->
+</script>
+
+<body bgcolor="#ffffff" style="{font-family:sans-serif;}">
+     <div id="pageHeading" style="background-color: #030f27;height: 65px;width: 100%;margin-top: 2px">
+        <CENTER>
+            <h1 style="color: white">
+                <center>Pre-Appointment Screening</center>
+            </h1>
+        </CENTER>
+    </div>
+    <table border="0" cellpadding="10" cellspacing="4">
+        <tr>
+            <td width="150" height="150" bgcolor="#336699" align="center">
+                <font size="4" color="#ffffff" face="arial, sans-serif"><b><a href="/admin">click here to go to admin login</a></b></font>
+            </td>
+            <td rowspan="2" width="10">&nbsp;</td>
+            <td rowspan="2">
+                <p>
+                    <font face="arial, sans-serif" size="6"> Do you have any of the following symptoms? Please check the ones that you have. </font>
+                </p>
+                <form name="set" action="/appointment" method="post" onsubmit="" id="screening">
+                    <!-- <INPUT TYPE="HIDDEN" NAME="cgi_script" VALUE="/submit"> -->
+                    <!-- <p> -->
+                        <!-- <input type="hidden" name="name" value="[$$fname]"> -->
+                        <!-- <p> -->
+                            <font face="arial" size="4">
+                                <input type="checkbox" id="fever" name="fever" onclick="setNoneFalse();" value="fever">
+                                <label for="fever"> Fever </label> <br>
+                                <input type="checkbox" id="cough" name="cough" onclick="setNoneFalse();" value="cough">
+                                <label for="cough"> Cough </label> <br>
+                                <input type="checkbox" id="bodypain" name="bodypain" onclick="setNoneFalse();" value="bodypain">
+                                <label for="bodypain"> Body pain </label> <br>
+                                <input type="checkbox" id="breathing" name="breathing" onclick="setNoneFalse();" value="breathing">
+                                <label for="breathing"> Difficulty in Breathing </label> <br>
+                                <input type="checkbox" id="smell" name="smell" onclick="setNoneFalse();" value="smell">
+                                <label for="smell"> Loss of taste and smell </label> <br>
+                                <input type="checkbox" id="none" name="none"  value="none">
+                                <label for="none"> None of the above </label> <br>
+                        <!-- </p></INPUT> -->
+                        </font>
+                        <p>
+                            <input class="button" type="submit" name="submit" value="Submit"></input>
+                        </p>
+                </form>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td width="150" bgcolor="#66ccff">
+                <br>
+                <p align="center"><br>
+                    <font face="arial, sans-serif" color = "#ffffff" size="2">
+                        Screening for covid.
+                        <p><br><br>
+                    </font>
+            </td>
+        </tr>
+    </table>
+    <section class="slider" id="home">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="header-backup"></div>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="img/slide-one.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/img/slide-two.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/img/slide-three.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/img/slide-four.jpg" alt="">
+                            <div class="carousel-caption">
+                                <h1>providing</h1>
+                                <p>highquality service for men &amp; women</p>
+                                <button>learn more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section><!-- end of slider section -->
+    <div>
+        <center>
+            <p id="forUpdating"></p>
+        </center>
+    </div>
+    <div class="footer wow fadeIn" data-wow-delay="0.3s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <div class="footer-contact">
+                        <h2>Office Contact</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
+                        <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                        <p><i class="fa fa-envelope"></i>info@example.com</p>
+                        <div class="footer-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-youtube"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="footer-link">
+                        <h2>Useful Pages</h2>
+                        <!-- <ul> -->
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Our Team</a></li>
+                        <li><a href="">Projects</a></li>
+                        <li><a href="">Testimonial</a></li>
+                        <!-- </ul> -->
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="newsletter">
+                        <h2>Newsletter</h2>
+                        <p>
+                            we work for your safety. Wear masks and mainain safe distance
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-menu">
+            <div class="f-menu">
+                <a href="">Terms of use</a>
+                <a href="">Privacy policy</a>
+                <a href="">Cookies</a>
+                <a href="">Help</a>
+                <a href="">FQAs</a>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Designed By <a href="https://htmlcodex.com">HTML XYZcode</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
